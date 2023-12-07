@@ -1,0 +1,45 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COS
+    DIVIDE
+    LOG
+    LPAREN
+    MINUS
+    NUMBER
+    PLUS
+    POWER
+    RPAREN
+    SIN
+    TAN
+    TIMES
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> SQRT expression
+Rule 2     expression -> LOG10 expression
+
+Terminals, with rules where they appear
+
+COS                  : 
+DIVIDE               : 
+LOG                  : 
+LPAREN               : 
+MINUS                : 
+NUMBER               : 
+PLUS                 : 
+POWER                : 
+RPAREN               : 
+SIN                  : 
+SQRT                 : 1
+TAN                  : 
+TIMES                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+LOG10                : 2
+expression           : 1 2 0
+
