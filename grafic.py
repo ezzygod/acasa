@@ -55,8 +55,6 @@ def p_expresii(c):
         c[0] = pow(c[1], c[3])
 
 
-
-
 #PARTEA GRAFICA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -77,12 +75,12 @@ campInserare = Entry(calculator)
 campInserare.grid(row=0, column=0, columnspan=4, pady=10)
 
 # Funcția pentru gestionarea evenimentelor de apăsare a butoanelor
-def button_click(valoare):
+def buton_click(valoare):
     textcurent = campInserare.get()
     campInserare.delete(0, END)
     campInserare.insert(END, textcurent + valoare)
 
-def button_del():
+def buton_del():
     textcurent = campInserare.get()
     campInserare.delete(len(textcurent) - 1)
 
@@ -92,7 +90,7 @@ col_val = 0
 
 #inserare butoane
 for buton in butoane:
-    Button(calculator, text=buton, width=5, height=2, command=lambda b=buton: button_click(b)).grid(row=row_val, column=col_val)
+    Button(calculator, text=buton, width=5, height=2, command=lambda b=buton: buton_click(b)).grid(row=row_val, column=col_val)
     col_val += 1
     if col_val > 3:
         col_val = 0
@@ -102,7 +100,7 @@ row_val = 1
 col_val = 4
 
 #buton delete
-Button(calculator, text="Del", width=5, height=2, command=button_del).grid(row=1, column=4)
+Button(calculator, text="Del", width=5, height=2, command=buton_del).grid(row=1, column=4)
 
 calculator.geometry("225x200")
 
