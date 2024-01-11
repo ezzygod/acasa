@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'COS DIVIDE LOG LPAREN MINUS NUMBER PLUS POWER RPAREN SIN SQRT TAN TIMESexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expression\n                  | expression POWER expressionexpression : SQRT expression\n                  | LOG expressionexpression : SIN expression\n                  | COS expression\n                  | TAN expressionexpression : LPAREN expression RPARENexpression : NUMBER'
+_lr_signature = 'COS DIVIDE LOG LPAREN MINUS NEGATE NUMBER PLUS POWER RPAREN SIN SQRT TAN TIMESexpresie : termen\n                | expresie PLUS termen\n                | expresie MINUS termen\n                | expresie TIMES termen\n                | expresie DIVIDE termen\n                | expresie POWER termen\n                | NEGATE termentermen : termen TIMES factor\n              | termen DIVIDE factor\n              | factorfactor : NUMBER\n              | SQRT factor\n              | LOG factor\n              | SIN factor\n              | COS factor\n              | TAN factor\n              | LPAREN expresie RPAREN'
     
-_lr_action_items = {'SQRT':([0,2,3,4,5,6,7,9,10,11,12,13,],[2,2,2,2,2,2,2,2,2,2,2,2,]),'LOG':([0,2,3,4,5,6,7,9,10,11,12,13,],[3,3,3,3,3,3,3,3,3,3,3,3,]),'SIN':([0,2,3,4,5,6,7,9,10,11,12,13,],[4,4,4,4,4,4,4,4,4,4,4,4,]),'COS':([0,2,3,4,5,6,7,9,10,11,12,13,],[5,5,5,5,5,5,5,5,5,5,5,5,]),'TAN':([0,2,3,4,5,6,7,9,10,11,12,13,],[6,6,6,6,6,6,6,6,6,6,6,6,]),'LPAREN':([0,2,3,4,5,6,7,9,10,11,12,13,],[7,7,7,7,7,7,7,7,7,7,7,7,]),'NUMBER':([0,2,3,4,5,6,7,9,10,11,12,13,],[8,8,8,8,8,8,8,8,8,8,8,8,]),'$end':([1,8,14,15,16,17,18,20,21,22,23,24,25,],[0,-12,-6,-7,-8,-9,-10,-1,-2,-3,-4,-5,-11,]),'PLUS':([1,8,14,15,16,17,18,19,20,21,22,23,24,25,],[9,-12,9,9,9,9,9,9,9,9,9,9,9,-11,]),'MINUS':([1,8,14,15,16,17,18,19,20,21,22,23,24,25,],[10,-12,10,10,10,10,10,10,10,10,10,10,10,-11,]),'TIMES':([1,8,14,15,16,17,18,19,20,21,22,23,24,25,],[11,-12,11,11,11,11,11,11,11,11,11,11,11,-11,]),'DIVIDE':([1,8,14,15,16,17,18,19,20,21,22,23,24,25,],[12,-12,12,12,12,12,12,12,12,12,12,12,12,-11,]),'POWER':([1,8,14,15,16,17,18,19,20,21,22,23,24,25,],[13,-12,13,13,13,13,13,13,13,13,13,13,13,-11,]),'RPAREN':([8,14,15,16,17,18,19,20,21,22,23,24,25,],[-12,-6,-7,-8,-9,-10,25,-1,-2,-3,-4,-5,-11,]),}
+_lr_action_items = {'NEGATE':([0,11,],[3,3,]),'NUMBER':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,]),'SQRT':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,]),'LOG':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,]),'SIN':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,]),'COS':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,]),'TAN':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,]),'LPAREN':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,]),'$end':([1,2,4,5,19,20,21,22,23,24,26,27,28,29,30,31,32,33,],[0,-1,-10,-11,-7,-12,-13,-14,-15,-16,-2,-3,-4,-5,-6,-8,-9,-17,]),'PLUS':([1,2,4,5,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[12,-1,-10,-11,-7,-12,-13,-14,-15,-16,12,-2,-3,-4,-5,-6,-8,-9,-17,]),'MINUS':([1,2,4,5,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[13,-1,-10,-11,-7,-12,-13,-14,-15,-16,13,-2,-3,-4,-5,-6,-8,-9,-17,]),'TIMES':([1,2,4,5,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[14,17,-10,-11,17,-12,-13,-14,-15,-16,14,17,17,17,17,17,-8,-9,-17,]),'DIVIDE':([1,2,4,5,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[15,18,-10,-11,18,-12,-13,-14,-15,-16,15,18,18,18,18,18,-8,-9,-17,]),'POWER':([1,2,4,5,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[16,-1,-10,-11,-7,-12,-13,-14,-15,-16,16,-2,-3,-4,-5,-6,-8,-9,-17,]),'RPAREN':([2,4,5,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[-1,-10,-11,-7,-12,-13,-14,-15,-16,33,-2,-3,-4,-5,-6,-8,-9,-17,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'expression':([0,2,3,4,5,6,7,9,10,11,12,13,],[1,14,15,16,17,18,19,20,21,22,23,24,]),}
+_lr_goto_items = {'expresie':([0,11,],[1,25,]),'termen':([0,3,11,12,13,14,15,16,],[2,19,2,26,27,28,29,30,]),'factor':([0,3,6,7,8,9,10,11,12,13,14,15,16,17,18,],[4,4,20,21,22,23,24,4,4,4,4,4,4,31,32,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,17 +26,22 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> expression","S'",1,None,None,None),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','calc2.py',55),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','calc2.py',56),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','calc2.py',57),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','calc2.py',58),
-  ('expression -> expression POWER expression','expression',3,'p_expression_binop','calc2.py',59),
-  ('expression -> SQRT expression','expression',2,'p_expression_unop','calc2.py',72),
-  ('expression -> LOG expression','expression',2,'p_expression_unop','calc2.py',73),
-  ('expression -> SIN expression','expression',2,'p_expression_trig','calc2.py',80),
-  ('expression -> COS expression','expression',2,'p_expression_trig','calc2.py',81),
-  ('expression -> TAN expression','expression',2,'p_expression_trig','calc2.py',82),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','calc2.py',91),
-  ('expression -> NUMBER','expression',1,'p_expression_number','calc2.py',95),
+  ("S' -> expresie","S'",1,None,None,None),
+  ('expresie -> termen','expresie',1,'p_expresii','SAVEDEM.py',58),
+  ('expresie -> expresie PLUS termen','expresie',3,'p_expresii','SAVEDEM.py',59),
+  ('expresie -> expresie MINUS termen','expresie',3,'p_expresii','SAVEDEM.py',60),
+  ('expresie -> expresie TIMES termen','expresie',3,'p_expresii','SAVEDEM.py',61),
+  ('expresie -> expresie DIVIDE termen','expresie',3,'p_expresii','SAVEDEM.py',62),
+  ('expresie -> expresie POWER termen','expresie',3,'p_expresii','SAVEDEM.py',63),
+  ('expresie -> NEGATE termen','expresie',2,'p_expresii','SAVEDEM.py',64),
+  ('termen -> termen TIMES factor','termen',3,'p_termen','SAVEDEM.py',87),
+  ('termen -> termen DIVIDE factor','termen',3,'p_termen','SAVEDEM.py',88),
+  ('termen -> factor','termen',1,'p_termen','SAVEDEM.py',89),
+  ('factor -> NUMBER','factor',1,'p_factor','SAVEDEM.py',98),
+  ('factor -> SQRT factor','factor',2,'p_factor','SAVEDEM.py',99),
+  ('factor -> LOG factor','factor',2,'p_factor','SAVEDEM.py',100),
+  ('factor -> SIN factor','factor',2,'p_factor','SAVEDEM.py',101),
+  ('factor -> COS factor','factor',2,'p_factor','SAVEDEM.py',102),
+  ('factor -> TAN factor','factor',2,'p_factor','SAVEDEM.py',103),
+  ('factor -> LPAREN expresie RPAREN','factor',3,'p_factor','SAVEDEM.py',104),
 ]
